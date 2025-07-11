@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P2P Gists</title>
+  <script>
+    // GitHub Pages SPA redirect
+    // Only redirect if we're on GitHub Pages and not already on the root
+    if (window.location.hostname === 'weboko.github.io' && window.location.pathname !== '/p2p-gists/') {
+      var pathSegmentsToKeep = 1;
+      var l = window.location;
+      var redirectPath = l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/');
+      
+      // Only redirect if there's actually a path to redirect
+      if (redirectPath) {
+        l.replace(
+          l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+          '/p2p-gists/' + '?/' + redirectPath +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+        );
+      }
+    }
+  </script>
+</head>
+<body>
+</body>
+</html> 
